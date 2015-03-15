@@ -1,0 +1,11 @@
+一个人可以创建一个home  也可以加入现有的home
+devices 家电设备 sensor传感器
+每个人一个personid
+acuators动作器 
+sensors
+states 家庭的状态 
+locations 几个屋
+homeentities 碗  桌子  
+tasks 
+goals
+activities
