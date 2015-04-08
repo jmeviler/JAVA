@@ -8,7 +8,7 @@ public class APIApplication extends ResourceConfig{
     public APIApplication() {
         //加载Resource
         register(HomeResource.class);
-
+        register(UserResource.class);
         //注册数据转换器
         register(JacksonJsonProvider.class);
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="xyz.onesway.bean.User" table="info_user">
+        <id name="userId" type="int">
+            <generator class="native" />
+        </id>
+        <property name="username" type="string"/>
+        <property name="password" type="string"/>
+        <property name="homeId" type="int"/>
+        <property name="deleted" type="int"/>
+    </class>
+</hibernate-mapping>
