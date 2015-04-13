@@ -46,7 +46,11 @@ public class UserResource {
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,
         MediaType.TEXT_XML })
     public User login(@PathParam("userName") String userName, @PathParam("password") String password) {
-        return userService.login(userName, password);
+        if (userService.login(userName, password) != null) {
+             return userService.login(userName, password);
+         } else {
+             return null;
+         }
     }
     
     @Path("/updatepwd/{userId}/{password}")
