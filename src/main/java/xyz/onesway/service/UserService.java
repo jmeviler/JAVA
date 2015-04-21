@@ -18,10 +18,7 @@ public class UserService {
 
     // password不需要传递到dao层 直接在业务逻辑层处理
     public User login(String userName, String password) {
-        System.out.println(userName);
-        System.out.println(password);
         User user = userDao.findUserByName(userName);
-        
         if (user != null && user.getPassword().equals(password)) {
             return user;
         } else {
