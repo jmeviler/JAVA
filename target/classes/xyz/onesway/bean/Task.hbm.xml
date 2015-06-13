@@ -6,7 +6,9 @@
         <id name="taskId" type="int">
             <generator class="identity" />
         </id>
-        <property name="name" type="string"/>
-        <property name="states" type="string"/>
+        <property name="goal" type="string"/>
+        <property name="activity" type="string"/>
+        <property name="deleted" type="int"/>
+        <property name="username" type="string"/>
     </class>
 </hibernate-mapping>

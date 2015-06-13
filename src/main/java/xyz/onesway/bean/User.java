@@ -10,6 +10,7 @@ public class User {
     private String password;
     private int homeId;
     private int deleted;
+    private int isadmin;
     
     public User() {
     }
@@ -52,6 +53,14 @@ public class User {
 
     public void setDeleted(int deleted) {
         this.deleted = deleted;
+    }
+
+    public int getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(int isadmin) {
+        this.isadmin = isadmin;
     }
     
 }

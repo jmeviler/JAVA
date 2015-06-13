@@ -10,7 +10,9 @@ public class Task {
     private int taskId;
     private String goal;
     private String activity;
-    
+    private int deleted;
+    private String username;
+
     public Task() {
     }
 
@@ -37,5 +39,18 @@ public class Task {
     public void setActivity(String activity) {
         this.activity = activity;
     }
-
+    
+    public int getDeleted() {
+        return deleted;
+    }
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

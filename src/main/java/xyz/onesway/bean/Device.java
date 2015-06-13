@@ -10,18 +10,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Device {
     
-    private int deviceId;
+    private int id;
     private String name;
     private int states;
-    
+    private int deleted;
+    private String username;
+    private String location;
+
     public Device() {
     }
-    public int getDeviceId() {
-        return deviceId;
+
+    public int getId() {
+        return id;
     }
-    public void setDeviceId(int deviceId) {
-        this.deviceId = deviceId;
+
+    public void setId(int id) {
+        this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -33,5 +39,27 @@ public class Device {
     }
     public void setStates(int states) {
         this.states = states;
+    }
+    public int getDeleted() {
+        return deleted;
+    }
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

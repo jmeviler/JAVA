@@ -1,5 +1,7 @@
 package xyz.onesway.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +64,20 @@ public class UserService {
         }
     }
 
+    
+    public boolean findUserByName(String name){
+        try {
+            if(userDao.findUserByName(name) ==null) {
+                return false;
+            }else {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public boolean delete(int userId) {
         try {
             return userDao.delete(userId);
@@ -69,5 +85,9 @@ public class UserService {
             e.printStackTrace();
             return false;
         }
+    }
+    
+    public List<User> findUseByHomeId(int homeId) {
+        return userDao.findUserByHomeId(homeId);
     }
 }

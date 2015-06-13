@@ -3,10 +3,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="xyz.onesway.bean.Actuator" table="info_actuator">
-        <id name="actuatorId" type="int">
+        <id name="id" type="int">
             <generator class="identity" />
         </id>
         <property name="name" type="string"/>
-        <property name="states" type="string"/>
+        <property name="states" type="int"/>
+        <property name="deleted" type="int"/>
+        <property name="username" type="string"/>
+        <property name="location" type="string"/>
     </class>
 </hibernate-mapping>

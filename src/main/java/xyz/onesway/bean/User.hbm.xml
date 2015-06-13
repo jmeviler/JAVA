@@ -10,5 +10,6 @@
         <property name="password" type="string"/>
         <property name="homeId" type="int"/>
         <property name="deleted" type="int"/>
+        <property name="isadmin" type="int"/>
     </class>
 </hibernate-mapping>

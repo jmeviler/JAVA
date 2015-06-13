@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="xyz.onesway.bean.Temperature" table="info_temperature">
+        <id name="tId" type="int">
+            <generator class="native" />
+        </id>
+        <property name="year" type="int"/>
+        <property name="month" type="int"/>
+        <property name="day" type="int"/>
+        <property name="hour" type="int"/>
+        <property name="minute" type="int"/>
+        <property name="temperature" type="int"/>
+        <property name="name" type="string"/>
+    </class>
+</hibernate-mapping>

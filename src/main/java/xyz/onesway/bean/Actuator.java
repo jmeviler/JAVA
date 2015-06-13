@@ -8,19 +8,22 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Actuator {
-    private int actuatorId;
+    private int id;
     private String name;
     private int states;
-        
+    private int deleted;
+    private String username;
+    private String location;
+
     public Actuator() {
     }
 
-    public int getActuatorId() {
-        return actuatorId;
+    public int getId() {
+        return id;
     }
 
-    public void setActuatorId(int actuatorId) {
-        this.actuatorId = actuatorId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -38,6 +41,26 @@ public class Actuator {
     public void setStates(int states) {
         this.states = states;
     }
-    
-    
+
+    public int getDeleted() {
+        return deleted;
+    }
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }

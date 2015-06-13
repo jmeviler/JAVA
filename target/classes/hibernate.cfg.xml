@@ -19,6 +19,8 @@
         <mapping resource="xyz/onesway/bean/Actuator.hbm.xml" />
         <mapping resource="xyz/onesway/bean/Device.hbm.xml" />
         <mapping resource="xyz/onesway/bean/Sensor.hbm.xml" />
+        <mapping resource="xyz/onesway/bean/Task.hbm.xml" />
+        <mapping resource="xyz/onesway/bean/Temperature.hbm.xml" />
     </session-factory>
 
 </hibernate-configuration>

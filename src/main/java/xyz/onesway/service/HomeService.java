@@ -17,6 +17,19 @@ public class HomeService {
         return homeDao.save(home);
     }
 
+    public Home findHomeByName(String name, String pwd){
+        Home home = homeDao.findHomeByName(name);
+        if(pwd.equals(home.getPassword())){
+            return home;
+        }else {
+            return null;
+        }
+    }
+    
+    public boolean findHomeByName(String name) {
+        return homeDao.findHomeByname(name);
+    }
+    
     public boolean update(int homeId,Home home) {
         home.setHomeId(homeId);
         return homeDao.update(home);

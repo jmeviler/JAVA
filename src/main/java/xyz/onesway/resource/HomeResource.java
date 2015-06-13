@@ -20,12 +20,6 @@ public class HomeResource {
     @Autowired
     private HomeService homeService;
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String sayHello() {
-        return "Hello World ! This is a test by Ben Li!";
-    }
-
     /**
      * add home
      * 
@@ -47,14 +41,33 @@ public class HomeResource {
      * @param home
      * @return true or false
      */
+    @Path("/add")
     @POST
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,
             MediaType.TEXT_XML })
     public boolean saveHome(Home home) {
-        return homeService.save(home);
+        if(homeService.findHomeByName(home.getName())){
+            return false;
+        }else {
+            return homeService.save(home);
+        }
     }
 
+    @Path("/login/{name}/{pwd}")
+    @POST
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,
+            MediaType.TEXT_XML })
+    public Home login(@PathParam("name") String name, @PathParam("pwd") String pwd){
+        Home home =homeService.findHomeByName(name, pwd); 
+        if(home != null && home.getDeleted() != 1){
+            return home;
+        }else {
+            return null;
+        }
+    }
+    
     /**
      * delete
      * 

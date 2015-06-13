@@ -1,5 +1,7 @@
 package xyz.onesway.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,7 @@ public class DeviceService {
 
     //delete Device by id
     public boolean delete (int deviceId) {
+        System.out.println(deviceId);
         try {
             return deviceDao.delete(deviceId);
         } catch (Exception e) {
@@ -35,10 +38,19 @@ public class DeviceService {
         }
     }
 
-    //update Device's info
-    public boolean updateDevice (Device device) {
+    public Device findDeviceById(int deviceId) {
         try {
-            return deviceDao.updateDevice(device);
+            return deviceDao.findDeviceById(deviceId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    //update Device's info
+    public boolean updateDeviceById (Device device) {
+        try {
+            return deviceDao.updateDeviceById(device);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -46,12 +58,12 @@ public class DeviceService {
     }
 
     //find uers's task list
-    public List<Device> findUserDevice (int homeId) {
+    public List<Device> findUserDevice (String username, String name) {
         try {
-            return deviceDao.findUserDevice(homeId);
+            return deviceDao.findUserDevice(username,name);
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 }

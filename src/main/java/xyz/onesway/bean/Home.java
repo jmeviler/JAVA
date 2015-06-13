@@ -11,6 +11,9 @@ public class Home {
     private String location;
     private String home_entity;
     private int taskid;
+    private int deleted;
+    private String name;
+    private String password;
     
     public Home() {
     }
@@ -77,6 +80,29 @@ public class Home {
 
     public void setTaskid(int taskid) {
         this.taskid = taskid;
+    }
+
+    public int getDeleted() {
+        return deleted;
+    }
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

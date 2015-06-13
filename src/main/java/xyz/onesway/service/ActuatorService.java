@@ -1,5 +1,7 @@
 package xyz.onesway.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,11 +36,20 @@ public class ActuatorService {
             return false;
         }
     }
-
-    //update Actuator's info
-    public boolean updateActuator (Actuator actuator) {
+    
+    public Actuator findActuatorById(int actuatorId) {
         try {
-            return actuatorDao.updateActuator(actuator);
+            return actuatorDao.findActuatorById(actuatorId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    //update Actuator's info
+    public boolean updateActuatorById (Actuator actuator) {
+        try {
+            return actuatorDao.updateActuatorById(actuator);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -46,12 +57,12 @@ public class ActuatorService {
     }
 
     //find uers's task list
-    public List<Actuator> findUserActuator (int homeId) {
+    public List<Actuator> findUserActuator (String username, String name) {
         try {
-            return actuatorDao.findUserActuator(homeId);
+            return actuatorDao.findUserActuator(username,name);
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 }

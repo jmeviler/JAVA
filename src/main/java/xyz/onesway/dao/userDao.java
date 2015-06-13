@@ -1,5 +1,7 @@
 package xyz.onesway.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -97,7 +99,7 @@ public class userDao {
      */
     public boolean updateUserPwd(int userId, String password) {
         try {
-            String hql = "update User u set u.password = ? where u.userid = ?";
+            String hql = "update User u set u.password = ? where u.userId = ?";
             Query query = sessionFactory.getCurrentSession().createQuery(hql);
             query.setString(0, password);
             query.setInteger(1, userId);
@@ -105,6 +107,18 @@ public class userDao {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    
+    public List<User> findUserByHomeId(int homeId) {
+        try {
+            String hql = " from User u where u.homeId= ? and u.deleted !=1";
+            Query query = sessionFactory.getCurrentSession().createQuery(hql);
+            query.setInteger(0, homeId);
+            return query.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

@@ -1,4 +1,17 @@
-public class taskDao {
+package xyz.onesway.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import xyz.onesway.bean.Task;
+
+@Repository
+@Transactional
+public class taskDao{
 
     private SessionFactory sessionFactory;
 
@@ -45,8 +58,8 @@ public class taskDao {
         try {
             String hql = "from Task t left join Home h on t.taskId = h.taskId where h.homeId = ?";
             Query query = sessionFactory.getCurrentSession().createQuery(hql);
-            query.setString(0, homeId);
-            return query.uniqueResult();
+            query.setInteger(0, homeId);
+            return (List<Task>) query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

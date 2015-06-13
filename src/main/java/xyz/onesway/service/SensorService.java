@@ -1,5 +1,7 @@
 package xyz.onesway.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,7 @@ public class SensorService {
         if(sensor.getName() == null) {
             return false;
         } else {
-            return SensorDao.save(sensor);
+            return sensorDao.save(sensor);
         }
     }
 
@@ -35,10 +37,20 @@ public class SensorService {
         }
     }
 
-    //update Sensor's info
-    public boolean updateSensor (Sensor sensor) {
+    
+    public Sensor findSensorById(int sensorId) {
         try {
-            return sensorDao.updateSensor(sensor);
+            return sensorDao.findSensorById(sensorId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    //update Sensor's info
+    public boolean updateSensorById (Sensor sensor) {
+        try {
+            return sensorDao.updateSensorById(sensor);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -46,12 +58,12 @@ public class SensorService {
     }
 
     //find uers's task list
-    public List<Sensor> findUserSensor (int homeId) {
+    public List<Sensor> findUserSensor (String username, String name) {
         try {
-            return sensorDao.findUserSensor(homeId);
+            return sensorDao.findUsersDevice(username,name);
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 }

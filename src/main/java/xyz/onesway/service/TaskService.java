@@ -1,5 +1,7 @@
 package xyz.onesway.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +44,7 @@ public class TaskService {
     //update task's goal
     public boolean updateGoal (int taskId, String goal) {
         try {
-            return taskDao.updateGOal(taskId, goal);
+            return taskDao.updateGoal(taskId, goal);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -50,11 +52,6 @@ public class TaskService {
     }
 
     public List<Task> findUserTask (int homeId) {
-        try {
-            return taskDao.findUserTask(homeId);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+            return taskDao.findTaskByHomeId(homeId);
     }
 }

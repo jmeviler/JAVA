@@ -14,6 +14,9 @@
         <property name="location" type="string"/>
         <property name="home_entity" type="string"/>
         <property name="taskid" type="int"/>
+        <property name="deleted" type="int"/>
+        <property name="name" type="string"/>
+        <property name="password" type="string"/>
         
     </class>
 </hibernate-mapping>
